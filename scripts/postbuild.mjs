@@ -2,10 +2,11 @@
 // 1. Copy index.csr.html to 404.html so unknown URLs load the SPA fallback.
 // 2. Ensure .nojekyll exists (GH Pages would otherwise process the output via Jekyll).
 import { copyFile, writeFile, access } from 'node:fs/promises';
-import { join } from 'node:path';
+import { fileURLToPath } from 'node:url';
+import { dirname, join } from 'node:path';
 
-const root = new URL('..', import.meta.url).pathname.replace(/^\//, '');
-const browser = join(root, 'dist', 'hbf-hotel-web', 'browser');
+const here = dirname(fileURLToPath(import.meta.url));
+const browser = join(here, '..', 'dist', 'hbf-hotel-web', 'browser');
 
 const csr = join(browser, 'index.csr.html');
 const notFound = join(browser, '404.html');

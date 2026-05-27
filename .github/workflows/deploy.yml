@@ -29,7 +29,9 @@ jobs:
         run: npm ci
 
       - name: Build (prerender all routes)
-        run: npm run build -- --base-href "/${{ github.event.repository.name }}/"
+        run: |
+          npx ng build --base-href "/${{ github.event.repository.name }}/"
+          node scripts/postbuild.mjs
 
       - name: Setup Pages
         uses: actions/configure-pages@v5
