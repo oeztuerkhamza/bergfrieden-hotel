@@ -3,7 +3,7 @@ import { LANGS } from './core/i18n';
 
 const langParams = () => Promise.resolve(LANGS.map(lang => ({ lang })));
 
-const pagePaths = ['', 'uber-uns', 'zimmer', 'fruhstuck', 'entdecken', 'hochschwarzwald-card', 'galerie', 'kontakt', 'impressum', 'datenschutz'];
+const pagePaths = ['', 'uber-uns', 'zimmer', 'fruhstuck', 'entdecken', 'hochschwarzwald-card', 'galerie', 'blog', 'kontakt', 'impressum', 'datenschutz'];
 
 export const serverRoutes: ServerRoute[] = [
   // Root '/' is a redirect to /de — prerender to an HTML stub that triggers

@@ -1,0 +1,70 @@
+<!-- Hero -->
+<section class="relative pt-40 pb-20 lg:pt-48 lg:pb-28 bg-forest-900 text-cream-50 overflow-hidden">
+  <div class="absolute inset-0 opacity-25">
+    <img src="images/hbf-foto-08.jpg" alt="" class="w-full h-full object-cover" loading="eager">
+    <div class="absolute inset-0 bg-gradient-to-b from-forest-950/60 to-forest-950"></div>
+  </div>
+  <div class="container-page relative z-10">
+    <p class="eyebrow !text-bronze-300 mb-5 animate-fade-up">{{ 'blog.heroEyebrow' | t }}</p>
+    <h1 class="font-display text-display-lg !text-cream-50 max-w-3xl animate-fade-up" style="animation-delay: 0.15s">
+      {{ 'blog.heroTitle1' | t }} <span class="italic text-bronze-200">{{ 'blog.heroTitle2' | t }}</span>
+    </h1>
+  </div>
+</section>
+
+<!-- Intro -->
+<section class="section-tight bg-cream-50">
+  <div class="container-narrow text-center">
+    <p class="text-lg text-ink-700 leading-relaxed">
+      {{ 'blog.intro' | t }}
+    </p>
+  </div>
+</section>
+
+<!-- Accordion list -->
+<section class="section-tight bg-cream-50">
+  <div class="container-narrow">
+    <div class="divide-y divide-cream-200 border-y border-cream-200">
+      @for (post of posts; track post.id; let i = $index) {
+        <details class="group" [attr.id]="post.id">
+          <summary class="list-none cursor-pointer py-8 lg:py-10 flex items-start gap-6 lg:gap-8 hover:bg-cream-100/60 transition-colors duration-300 px-4 -mx-4">
+            <span class="font-display text-bronze-700 text-2xl lg:text-3xl tabular-nums shrink-0 mt-1 w-12">
+              {{ (i + 1).toString().padStart(2, '0') }}
+            </span>
+            <div class="flex-1 min-w-0">
+              <h2 class="font-display text-xl lg:text-2xl text-forest-900 mb-2 leading-snug">
+                {{ post.titleKey | t }}
+              </h2>
+              <p class="text-ink-700 leading-relaxed">{{ post.excerptKey | t }}</p>
+            </div>
+            <span class="shrink-0 text-bronze-700 text-2xl leading-none mt-2 transition-transform duration-300 group-open:rotate-45 select-none" aria-hidden="true">+</span>
+          </summary>
+
+          <div class="pb-12 lg:pb-16 pt-2 lg:pl-20 animate-fade-in">
+            <div class="relative aspect-[16/9] overflow-hidden mb-8 shadow-card">
+              <img [src]="post.image" [alt]="post.titleKey | t"
+                   class="w-full h-full object-cover" loading="lazy">
+            </div>
+            <div class="space-y-5 text-ink-700 leading-relaxed text-lg">
+              <p>{{ post.p1Key | t }}</p>
+              <p>{{ post.p2Key | t }}</p>
+              <p>{{ post.p3Key | t }}</p>
+            </div>
+          </div>
+        </details>
+      }
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="section bg-bronze-500 text-cream-50">
+  <div class="container-narrow text-center">
+    <p class="eyebrow !text-cream-100 mb-5">{{ 'blog.ctaEyebrow' | t }}</p>
+    <h2 class="text-display-md !text-cream-50 mb-8">{{ 'blog.ctaTitle' | t }}</h2>
+    <p class="text-cream-100/95 max-w-xl mx-auto mb-10">{{ 'blog.ctaBody' | t }}</p>
+    <a [routerLink]="link('kontakt')" class="btn !bg-forest-900 !text-cream-50 hover:!bg-forest-950">
+      {{ 'common.inquirySend' | t }}
+    </a>
+  </div>
+</section>

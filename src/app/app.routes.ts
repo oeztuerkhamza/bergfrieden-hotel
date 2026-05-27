@@ -11,6 +11,7 @@ const PAGES: Routes = [
   { path: 'entdecken',  loadComponent: () => import('./pages/entdecken/entdecken').then(m => m.EntdeckenPage) },
   { path: 'hochschwarzwald-card', loadComponent: () => import('./pages/hochschwarzwald-card/hochschwarzwald-card').then(m => m.HochschwarzwaldCardPage) },
   { path: 'galerie',    loadComponent: () => import('./pages/galerie/galerie').then(m => m.GaleriePage) },
+  { path: 'blog',       loadComponent: () => import('./pages/blog/blog').then(m => m.BlogPage) },
   { path: 'kontakt',    loadComponent: () => import('./pages/kontakt/kontakt').then(m => m.KontaktPage) },
   { path: 'impressum',  loadComponent: () => import('./pages/impressum/impressum').then(m => m.ImpressumPage) },
   { path: 'datenschutz', loadComponent: () => import('./pages/datenschutz/datenschutz').then(m => m.DatenschutzPage) },

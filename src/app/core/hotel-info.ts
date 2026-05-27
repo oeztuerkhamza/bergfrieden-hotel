@@ -50,5 +50,6 @@ export const NAV_LINKS: readonly NavLink[] = [
   { key: 'nav.breakfast', path: 'fruhstuck' },
   { key: 'nav.discover',  path: 'entdecken' },
   { key: 'nav.gallery',   path: 'galerie' },
+  { key: 'nav.blog',      path: 'blog' },
   { key: 'nav.contact',   path: 'kontakt' },
 ];

@@ -20,20 +20,20 @@ export class EntdeckenPage implements OnInit {
   protected readonly lang = this.langSvc.lang;
 
   protected readonly natur: Activity[] = [
-    { titleKey: 'discover.n1Title', bodyKey: 'discover.n1Body', image: '/images/hbf-foto-08.jpg' },
-    { titleKey: 'discover.n2Title', bodyKey: 'discover.n2Body', image: '/images/14A7391-1240x827.jpg' },
-    { titleKey: 'discover.n3Title', bodyKey: 'discover.n3Body', image: '/images/hotel-hbf-slider03-1240x826.jpg' },
+    { titleKey: 'discover.n1Title', bodyKey: 'discover.n1Body', image: 'images/hbf-foto-08.jpg' },
+    { titleKey: 'discover.n2Title', bodyKey: 'discover.n2Body', image: 'images/14A7391-1240x827.jpg' },
+    { titleKey: 'discover.n3Title', bodyKey: 'discover.n3Body', image: 'images/hotel-hbf-slider03-1240x826.jpg' },
   ];
 
   protected readonly sport: Activity[] = [
-    { titleKey: 'discover.s1Title', bodyKey: 'discover.s1Body', image: '/images/Radausfluge.jpg' },
-    { titleKey: 'discover.s2Title', bodyKey: 'discover.s2Body', image: '/images/14A7481-1-1240x827.jpg' },
-    { titleKey: 'discover.s3Title', bodyKey: 'discover.s3Body', image: '/images/hbf-foto-19-394x394.jpg' },
+    { titleKey: 'discover.s1Title', bodyKey: 'discover.s1Body', image: 'images/Radausfluge.jpg' },
+    { titleKey: 'discover.s2Title', bodyKey: 'discover.s2Body', image: 'images/14A7481-1-1240x827.jpg' },
+    { titleKey: 'discover.s3Title', bodyKey: 'discover.s3Body', image: 'images/hbf-foto-19-394x394.jpg' },
   ];
 
   protected readonly kultur: Activity[] = [
-    { titleKey: 'discover.k1Title', bodyKey: 'discover.k1Body', image: '/images/hbf-foto-22-394x394.jpg' },
-    { titleKey: 'discover.k2Title', bodyKey: 'discover.k2Body', image: '/images/hotel-hbf-slider01-1240x826.jpg' },
+    { titleKey: 'discover.k1Title', bodyKey: 'discover.k1Body', image: 'images/hbf-foto-22-394x394.jpg' },
+    { titleKey: 'discover.k2Title', bodyKey: 'discover.k2Body', image: 'images/hotel-hbf-slider01-1240x826.jpg' },
   ];
 
   link(path: string): unknown[] {

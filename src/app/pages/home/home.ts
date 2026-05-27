@@ -22,9 +22,9 @@ export class HomePage implements OnInit {
   protected readonly hotel = HOTEL;
 
   protected readonly heroSlides = [
-    '/images/14A7533-1240x827.jpg',
-    '/images/14A7391-1240x827.jpg',
-    '/images/hotel-hbf-slider01-1240x826.jpg',
+    'images/14A7533-1240x827.jpg',
+    'images/14A7391-1240x827.jpg',
+    'images/hotel-hbf-slider01-1240x826.jpg',
   ];
 
   protected readonly highlights: Highlight[] = [
