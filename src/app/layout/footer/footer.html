@@ -1,0 +1,58 @@
+<footer class="bg-forest-950 text-cream-100">
+  <div class="container-page py-16 lg:py-24">
+    <div class="grid gap-12 lg:gap-16 lg:grid-cols-12">
+      <div class="lg:col-span-5">
+        <h3 class="font-display text-3xl text-cream-50 mb-2">{{ hotel.name }}</h3>
+        <p class="eyebrow !text-bronze-300 mb-6">{{ hotel.tagline }}</p>
+        <p class="text-cream-200 leading-relaxed max-w-md">
+          {{ 'footer.intro' | t }}
+        </p>
+      </div>
+
+      <div class="lg:col-span-3">
+        <p class="eyebrow !text-bronze-300 mb-5">{{ 'footer.navHeading' | t }}</p>
+        <ul class="space-y-2.5">
+          @for (l of nav; track l.path) {
+            <li>
+              <a [routerLink]="link(l.path)" class="link-underline text-cream-200 hover:text-cream-50 text-sm">
+                {{ l.key | t }}
+              </a>
+            </li>
+          }
+        </ul>
+      </div>
+
+      <div class="lg:col-span-4">
+        <p class="eyebrow !text-bronze-300 mb-5">{{ 'footer.contactHeading' | t }}</p>
+        <address class="not-italic space-y-3 text-sm text-cream-200 leading-relaxed">
+          <div>
+            {{ hotel.address.street }}<br>
+            {{ hotel.address.postalCode }} {{ hotel.address.city }}<br>
+            {{ hotel.address.country }}
+          </div>
+          @for (phone of hotel.phones; track phone.value) {
+            <div>
+              <a [href]="phone.href" class="link-underline hover:text-cream-50">{{ phone.value }}</a>
+            </div>
+          }
+          <div>
+            <a [href]="hotel.emailHref" class="link-underline hover:text-cream-50">{{ hotel.email }}</a>
+          </div>
+          <div class="text-cream-300 text-xs pt-2 border-t border-forest-800/60">
+            {{ 'footer.reception' | t }}
+          </div>
+        </address>
+      </div>
+    </div>
+  </div>
+
+  <div class="border-t border-forest-800/60">
+    <div class="container-page py-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-cream-300">
+      <p>© {{ year }} {{ hotel.name }}. {{ 'footer.rights' | t }}</p>
+      <div class="flex items-center gap-6">
+        <a [routerLink]="link('impressum')" class="link-underline hover:text-cream-50">{{ 'footer.imprint' | t }}</a>
+        <a [routerLink]="link('datenschutz')" class="link-underline hover:text-cream-50">{{ 'footer.privacy' | t }}</a>
+      </div>
+    </div>
+  </div>
+</footer>

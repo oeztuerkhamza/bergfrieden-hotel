@@ -1,0 +1,61 @@
+<section class="relative h-[60vh] min-h-[440px] flex items-end overflow-hidden">
+  <div class="absolute inset-0">
+    <img src="/images/Fruhstuck.jpg" alt="" class="w-full h-full object-cover">
+    <div class="absolute inset-0 bg-gradient-to-t from-forest-950/80 via-forest-950/40 to-forest-950/20"></div>
+  </div>
+  <div class="container-page relative z-10 text-cream-50 pb-16 lg:pb-24">
+    <p class="eyebrow !text-bronze-300 mb-5 animate-fade-up">{{ 'breakfast.heroEyebrow' | t }}</p>
+    <h1 class="font-display text-display-lg !text-cream-50 max-w-3xl animate-fade-up" style="animation-delay: 0.15s">
+      {{ 'breakfast.heroTitle1' | t }}<br><span class="italic">{{ 'breakfast.heroTitle2' | t }}</span>
+    </h1>
+  </div>
+</section>
+
+<section class="section bg-cream-50">
+  <div class="container-narrow space-y-8 text-lg text-ink-800 leading-relaxed">
+    <p class="text-2xl font-display italic text-forest-800 leading-snug">
+      {{ 'breakfast.intro' | t }}
+    </p>
+    <p>{{ 'breakfast.p1' | t }}</p>
+    <p>{{ 'breakfast.p2' | t }}</p>
+  </div>
+</section>
+
+<section class="section bg-cream-100">
+  <div class="container-page grid lg:grid-cols-3 gap-px bg-cream-200">
+    <div class="bg-cream-100 p-10 lg:p-14">
+      <p class="eyebrow mb-4">{{ 'breakfast.whenLabel' | t }}</p>
+      <h2 class="font-display text-3xl mb-3">{{ 'breakfast.whenTitle' | t }}</h2>
+      <p class="text-ink-700 leading-relaxed">{{ 'breakfast.whenBody' | t }}</p>
+    </div>
+    <div class="bg-cream-100 p-10 lg:p-14">
+      <p class="eyebrow mb-4">{{ 'breakfast.whatLabel' | t }}</p>
+      <h2 class="font-display text-3xl mb-3">{{ 'breakfast.whatTitle' | t }}</h2>
+      <p class="text-ink-700 leading-relaxed">{{ 'breakfast.whatBody' | t }}</p>
+    </div>
+    <div class="bg-cream-100 p-10 lg:p-14">
+      <p class="eyebrow mb-4">{{ 'breakfast.forAllLabel' | t }}</p>
+      <h2 class="font-display text-3xl mb-3">{{ 'breakfast.forAllTitle' | t }}</h2>
+      <p class="text-ink-700 leading-relaxed">{{ 'breakfast.forAllBody' | t }}</p>
+    </div>
+  </div>
+</section>
+
+<section class="section bg-cream-50">
+  <div class="container-page grid lg:grid-cols-2 gap-8">
+    <img src="/images/hbf-foto-14-394x394.jpg" alt=""
+         class="w-full aspect-[4/3] object-cover shadow-card" loading="lazy">
+    <img src="/images/14A7391-1240x827.jpg" alt=""
+         class="w-full aspect-[4/3] object-cover shadow-card mt-0 lg:mt-12" loading="lazy">
+  </div>
+</section>
+
+<section class="section bg-forest-900 text-cream-50">
+  <div class="container-narrow text-center">
+    <p class="eyebrow !text-bronze-300 mb-5">{{ 'breakfast.ctaEyebrow' | t }}</p>
+    <h2 class="text-display-md !text-cream-50 mb-8">{{ 'breakfast.ctaTitle' | t }}</h2>
+    <a [routerLink]="link('kontakt')" class="btn-primary !bg-cream-50 !text-forest-900 hover:!bg-cream-100">
+      {{ 'common.inquirySend' | t }}
+    </a>
+  </div>
+</section>

@@ -1,0 +1,96 @@
+<section class="relative h-[60vh] min-h-[440px] flex items-end overflow-hidden">
+  <div class="absolute inset-0">
+    <img src="/images/hbf-foto-08.jpg" alt="" class="w-full h-full object-cover">
+    <div class="absolute inset-0 bg-gradient-to-t from-forest-950/80 via-forest-950/40 to-forest-950/20"></div>
+  </div>
+  <div class="container-page relative z-10 text-cream-50 pb-16 lg:pb-24">
+    <p class="eyebrow !text-bronze-300 mb-5 animate-fade-up">{{ 'discover.heroEyebrow' | t }}</p>
+    <h1 class="font-display text-display-lg !text-cream-50 max-w-3xl animate-fade-up" style="animation-delay: 0.15s">
+      {{ 'discover.heroTitle1' | t }}<br><span class="italic">{{ 'discover.heroTitle2' | t }}</span>
+    </h1>
+  </div>
+</section>
+
+<section class="section-tight bg-cream-50">
+  <div class="container-narrow text-center">
+    <p class="text-lg text-ink-700 leading-relaxed">
+      {{ 'discover.intro' | t }}
+    </p>
+  </div>
+</section>
+
+<section class="section-tight bg-cream-50">
+  <div class="container-page">
+    <p class="eyebrow mb-3">{{ 'discover.naturEyebrow' | t }}</p>
+    <h2 class="text-display-md mb-12">{{ 'discover.naturTitle' | t }}</h2>
+    <div class="grid md:grid-cols-3 gap-6 lg:gap-8">
+      @for (item of natur; track item.titleKey) {
+        <article class="group">
+          <div class="relative aspect-[4/5] overflow-hidden mb-5">
+            <img [src]="item.image" [alt]="item.titleKey | t"
+                 class="w-full h-full object-cover transition-transform duration-700 ease-silk group-hover:scale-105"
+                 loading="lazy">
+          </div>
+          <h3 class="font-display text-2xl mb-3">{{ item.titleKey | t }}</h3>
+          <p class="text-ink-700 leading-relaxed">{{ item.bodyKey | t }}</p>
+        </article>
+      }
+    </div>
+  </div>
+</section>
+
+<section class="section-tight bg-cream-100">
+  <div class="container-page">
+    <p class="eyebrow mb-3">{{ 'discover.sportEyebrow' | t }}</p>
+    <h2 class="text-display-md mb-12">{{ 'discover.sportTitle' | t }}</h2>
+    <div class="grid md:grid-cols-3 gap-6 lg:gap-8">
+      @for (item of sport; track item.titleKey) {
+        <article class="group">
+          <div class="relative aspect-[4/5] overflow-hidden mb-5">
+            <img [src]="item.image" [alt]="item.titleKey | t"
+                 class="w-full h-full object-cover transition-transform duration-700 ease-silk group-hover:scale-105"
+                 loading="lazy">
+          </div>
+          <h3 class="font-display text-2xl mb-3">{{ item.titleKey | t }}</h3>
+          <p class="text-ink-700 leading-relaxed">{{ item.bodyKey | t }}</p>
+        </article>
+      }
+    </div>
+  </div>
+</section>
+
+<section class="section-tight bg-cream-50">
+  <div class="container-page">
+    <p class="eyebrow mb-3">{{ 'discover.kulturEyebrow' | t }}</p>
+    <h2 class="text-display-md mb-12">{{ 'discover.kulturTitle' | t }}</h2>
+    <div class="grid md:grid-cols-2 gap-6 lg:gap-8">
+      @for (item of kultur; track item.titleKey) {
+        <article class="group">
+          <div class="relative aspect-[16/10] overflow-hidden mb-5">
+            <img [src]="item.image" [alt]="item.titleKey | t"
+                 class="w-full h-full object-cover transition-transform duration-700 ease-silk group-hover:scale-105"
+                 loading="lazy">
+          </div>
+          <h3 class="font-display text-2xl mb-3">{{ item.titleKey | t }}</h3>
+          <p class="text-ink-700 leading-relaxed">{{ item.bodyKey | t }}</p>
+        </article>
+      }
+    </div>
+  </div>
+</section>
+
+<section class="section bg-bronze-500 text-cream-50">
+  <div class="container-narrow text-center">
+    <p class="eyebrow !text-cream-100 mb-5">{{ 'discover.cardEyebrow' | t }}</p>
+    <h2 class="text-display-md !text-cream-50 mb-8">{{ 'discover.cardTitle' | t }}</h2>
+    <p class="text-cream-100/95 max-w-xl mx-auto mb-10">{{ 'discover.cardBody' | t }}</p>
+    <div class="flex flex-wrap items-center justify-center gap-4">
+      <a [routerLink]="link('hochschwarzwald-card')" class="btn !bg-forest-900 !text-cream-50 hover:!bg-forest-950">
+        {{ 'discover.cardLearnBtn' | t }}
+      </a>
+      <a [routerLink]="link('kontakt')" class="btn !bg-cream-50 !text-forest-900 hover:!bg-cream-100">
+        {{ 'discover.cardBtn' | t }}
+      </a>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,64 @@
+<section class="relative h-[60vh] min-h-[440px] flex items-end overflow-hidden">
+  <div class="absolute inset-0">
+    <img src="/images/14A7533-1240x827.jpg" alt="" class="w-full h-full object-cover">
+    <div class="absolute inset-0 bg-gradient-to-t from-forest-950/80 via-forest-950/40 to-forest-950/20"></div>
+  </div>
+  <div class="container-page relative z-10 text-cream-50 pb-16 lg:pb-24">
+    <p class="eyebrow !text-bronze-300 mb-5 animate-fade-up">{{ 'rooms.heroEyebrow' | t }}</p>
+    <h1 class="font-display text-display-lg !text-cream-50 max-w-3xl animate-fade-up" style="animation-delay: 0.15s">
+      {{ 'rooms.heroTitle1' | t }}<br><span class="italic">{{ 'rooms.heroTitle2' | t }}</span>
+    </h1>
+  </div>
+</section>
+
+<section class="section-tight bg-cream-50">
+  <div class="container-narrow text-center">
+    <p class="text-lg text-ink-700 leading-relaxed">
+      {{ 'rooms.intro' | t }}
+    </p>
+  </div>
+</section>
+
+<section class="bg-cream-50 pb-24 lg:pb-32">
+  <div class="container-page space-y-20 lg:space-y-32">
+    @for (room of rooms; track room.slug; let i = $index) {
+      <article class="grid lg:grid-cols-12 gap-8 lg:gap-16 items-center">
+        <div class="lg:col-span-7" [class.lg:order-2]="i % 2 === 1">
+          <div class="relative overflow-hidden group">
+            <img [src]="room.image" [alt]="room.nameKey | t"
+                 class="w-full aspect-[4/3] object-cover transition-transform duration-700 ease-silk group-hover:scale-105"
+                 loading="lazy">
+          </div>
+        </div>
+        <div class="lg:col-span-5" [class.lg:order-1]="i % 2 === 1">
+          <p class="eyebrow mb-3">{{ room.capKey | t }}</p>
+          <h2 class="font-display text-display-md mb-5">{{ room.nameKey | t }}</h2>
+          <p class="text-ink-700 leading-relaxed mb-8">{{ room.descKey | t }}</p>
+          <ul class="grid grid-cols-1 sm:grid-cols-2 gap-y-3 gap-x-6 mb-10">
+            @for (fk of room.featureKeys; track fk) {
+              <li class="flex items-start gap-3 text-sm text-ink-800">
+                <span class="text-bronze-600 mt-0.5">—</span>
+                <span>{{ fk | t }}</span>
+              </li>
+            }
+          </ul>
+          <a [routerLink]="link('kontakt')" [queryParams]="{ zimmer: (room.nameKey | t) }"
+             class="btn-secondary">
+            {{ 'common.inquireRoom' | t }}
+          </a>
+        </div>
+      </article>
+    }
+  </div>
+</section>
+
+<section class="section bg-forest-900 text-cream-50">
+  <div class="container-narrow text-center">
+    <p class="eyebrow !text-bronze-300 mb-5">{{ 'rooms.ctaEyebrow' | t }}</p>
+    <h2 class="text-display-md !text-cream-50 mb-8">{{ 'rooms.ctaTitle' | t }}</h2>
+    <p class="text-cream-200/90 max-w-xl mx-auto mb-10">{{ 'rooms.ctaBody' | t }}</p>
+    <a [routerLink]="link('kontakt')" class="btn-primary !bg-cream-50 !text-forest-900 hover:!bg-cream-100">
+      {{ 'rooms.ctaBtn' | t }}
+    </a>
+  </div>
+</section>

@@ -1,0 +1,61 @@
+<section class="relative h-[60vh] min-h-[440px] flex items-end overflow-hidden">
+  <div class="absolute inset-0">
+    <img src="/images/hotel-hbf-slider02-1240x826.jpg" alt="" class="w-full h-full object-cover">
+    <div class="absolute inset-0 bg-gradient-to-t from-forest-950/80 via-forest-950/40 to-forest-950/20"></div>
+  </div>
+  <div class="container-page relative z-10 text-cream-50 pb-16 lg:pb-24">
+    <p class="eyebrow !text-bronze-300 mb-5 animate-fade-up">{{ 'about.heroEyebrow' | t }}</p>
+    <h1 class="font-display text-display-lg !text-cream-50 max-w-3xl animate-fade-up" style="animation-delay: 0.15s">
+      {{ 'about.heroTitle1' | t }}<br><span class="italic">{{ 'about.heroTitle2' | t }}</span>
+    </h1>
+  </div>
+</section>
+
+<section class="section bg-cream-50">
+  <div class="container-narrow">
+    <div class="space-y-8 text-lg text-ink-800 leading-relaxed">
+      <p class="text-2xl font-display italic text-forest-800 leading-snug">
+        {{ 'about.intro' | t }}
+      </p>
+      <p>{{ 'about.p1' | t }}</p>
+      <p>{{ 'about.p2' | t }}</p>
+      <p>{{ 'about.p3' | t }}</p>
+    </div>
+  </div>
+</section>
+
+<section class="section bg-cream-100">
+  <div class="container-page grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+    <img src="/images/14A7346-1240x827.jpg" [alt]="'about.v1Title' | t"
+         class="w-full aspect-[4/5] object-cover shadow-card">
+    <div>
+      <p class="eyebrow mb-4">{{ 'about.valuesEyebrow' | t }}</p>
+      <h2 class="text-display-md mb-10">{{ 'about.valuesTitle' | t }}</h2>
+      <div class="space-y-8">
+        <div>
+          <h3 class="font-display text-2xl mb-3">{{ 'about.v1Title' | t }}</h3>
+          <p class="text-ink-700 leading-relaxed">{{ 'about.v1Body' | t }}</p>
+        </div>
+        <div>
+          <h3 class="font-display text-2xl mb-3">{{ 'about.v2Title' | t }}</h3>
+          <p class="text-ink-700 leading-relaxed">{{ 'about.v2Body' | t }}</p>
+        </div>
+        <div>
+          <h3 class="font-display text-2xl mb-3">{{ 'about.v3Title' | t }}</h3>
+          <p class="text-ink-700 leading-relaxed">{{ 'about.v3Body' | t }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section bg-forest-900 text-cream-50">
+  <div class="container-narrow text-center">
+    <p class="eyebrow !text-bronze-300 mb-5">{{ 'about.ctaEyebrow' | t }}</p>
+    <h2 class="text-display-md !text-cream-50 mb-8">{{ 'about.ctaTitle' | t }}</h2>
+    <p class="text-cream-200/90 max-w-xl mx-auto mb-10">{{ 'about.ctaBody' | t }}</p>
+    <a [routerLink]="link('kontakt')" class="btn-primary !bg-cream-50 !text-forest-900 hover:!bg-cream-100">
+      {{ 'common.contactUs' | t }}
+    </a>
+  </div>
+</section>

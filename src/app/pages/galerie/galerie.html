@@ -1,0 +1,41 @@
+<section class="pt-32 lg:pt-40 pb-12 bg-cream-50">
+  <div class="container-page">
+    <p class="eyebrow mb-5">{{ 'gallery.eyebrow' | t }}</p>
+    <h1 class="font-display text-display-lg max-w-3xl">
+      {{ 'gallery.title1' | t }}<br><span class="italic text-bronze-700">{{ 'gallery.title2' | t }}</span>
+    </h1>
+  </div>
+</section>
+
+<section class="pb-24 lg:pb-32 bg-cream-50">
+  <div class="container-page">
+    <div class="grid grid-cols-2 lg:grid-cols-4 auto-rows-[200px] lg:auto-rows-[260px] gap-3 lg:gap-4">
+      @for (img of images; track img.src) {
+        <button type="button" (click)="open(img)"
+                class="group relative overflow-hidden focus-visible:outline-bronze-500"
+                [class.col-span-2]="img.span === 'wide'"
+                [class.row-span-2]="img.span === 'tall'">
+          <img [src]="img.src" [alt]="img.alt"
+               class="w-full h-full object-cover transition-transform duration-700 ease-silk group-hover:scale-105"
+               loading="lazy">
+          <div class="absolute inset-0 bg-forest-950/0 group-hover:bg-forest-950/20 transition-colors duration-300"></div>
+        </button>
+      }
+    </div>
+  </div>
+</section>
+
+@if (lightbox(); as lb) {
+  <div class="fixed inset-0 z-[100] bg-forest-950/95 backdrop-blur-sm flex items-center justify-center p-4 animate-fade-in"
+       (click)="close()" role="dialog" aria-modal="true" [attr.aria-label]="lb.alt">
+    <button type="button" (click)="close()" [attr.aria-label]="'common.close' | t"
+            class="absolute top-6 right-6 text-cream-50 hover:text-bronze-300 transition-colors p-2">
+      <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+        <path d="M6 6l12 12M18 6L6 18"/>
+      </svg>
+    </button>
+    <img [src]="lb.src" [alt]="lb.alt"
+         class="max-w-full max-h-[85vh] object-contain animate-fade-up"
+         (click)="$event.stopPropagation()">
+  </div>
+}

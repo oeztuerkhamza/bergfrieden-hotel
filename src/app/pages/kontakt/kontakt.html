@@ -1,0 +1,123 @@
+<section class="pt-32 lg:pt-40 pb-16 bg-cream-50">
+  <div class="container-page">
+    <p class="eyebrow mb-5">{{ 'contact.eyebrow' | t }}</p>
+    <h1 class="font-display text-display-lg max-w-3xl">
+      {{ 'contact.title1' | t }}<br><span class="italic text-bronze-700">{{ 'contact.title2' | t }}</span>
+    </h1>
+  </div>
+</section>
+
+<section class="pb-24 bg-cream-50">
+  <div class="container-page grid lg:grid-cols-12 gap-12 lg:gap-16">
+    <div class="lg:col-span-7">
+      <p class="eyebrow mb-4">{{ 'contact.formEyebrow' | t }}</p>
+      <h2 class="font-display text-3xl lg:text-4xl mb-8">{{ 'contact.formTitle' | t }}</h2>
+
+      <form [action]="mailtoHref()" method="get" class="space-y-6">
+        <div class="grid sm:grid-cols-2 gap-6">
+          <label class="block">
+            <span class="block text-xs uppercase tracking-widest text-ink-600 mb-2">{{ 'contact.fName' | t }} *</span>
+            <input type="text" required name="name"
+                   [value]="form().name"
+                   (input)="updateField('name', $any($event.target).value)"
+                   class="w-full px-4 py-3 bg-cream-100 border border-cream-200 focus:border-forest-700 focus:bg-cream-50 outline-none transition-colors">
+          </label>
+          <label class="block">
+            <span class="block text-xs uppercase tracking-widest text-ink-600 mb-2">{{ 'contact.fEmail' | t }} *</span>
+            <input type="email" required name="email"
+                   [value]="form().email"
+                   (input)="updateField('email', $any($event.target).value)"
+                   class="w-full px-4 py-3 bg-cream-100 border border-cream-200 focus:border-forest-700 focus:bg-cream-50 outline-none transition-colors">
+          </label>
+        </div>
+
+        <label class="block">
+          <span class="block text-xs uppercase tracking-widest text-ink-600 mb-2">{{ 'contact.fPhone' | t }}</span>
+          <input type="tel" name="phone"
+                 [value]="form().phone"
+                 (input)="updateField('phone', $any($event.target).value)"
+                 class="w-full px-4 py-3 bg-cream-100 border border-cream-200 focus:border-forest-700 focus:bg-cream-50 outline-none transition-colors">
+        </label>
+
+        <label class="block">
+          <span class="block text-xs uppercase tracking-widest text-ink-600 mb-2">{{ 'contact.fSubject' | t }} *</span>
+          <input type="text" required name="subject"
+                 [value]="form().subject"
+                 (input)="updateField('subject', $any($event.target).value)"
+                 [placeholder]="'contact.fSubjectPh' | t"
+                 class="w-full px-4 py-3 bg-cream-100 border border-cream-200 focus:border-forest-700 focus:bg-cream-50 outline-none transition-colors">
+        </label>
+
+        <label class="block">
+          <span class="block text-xs uppercase tracking-widest text-ink-600 mb-2">{{ 'contact.fMessage' | t }} *</span>
+          <textarea required name="message" rows="6"
+                    [value]="form().message"
+                    (input)="updateField('message', $any($event.target).value)"
+                    [placeholder]="'contact.fMessagePh' | t"
+                    class="w-full px-4 py-3 bg-cream-100 border border-cream-200 focus:border-forest-700 focus:bg-cream-50 outline-none transition-colors resize-none"></textarea>
+        </label>
+
+        <div class="pt-2">
+          <button type="submit" class="btn-primary w-full sm:w-auto">
+            {{ 'common.inquirySend' | t }}
+          </button>
+          <p class="mt-4 text-xs text-ink-600">
+            {{ 'contact.fRequired' | t }} <a [href]="hotel.emailHref" class="link-underline">{{ hotel.email }}</a>.
+          </p>
+        </div>
+      </form>
+    </div>
+
+    <aside class="lg:col-span-5">
+      <div class="bg-forest-900 text-cream-100 p-8 lg:p-10">
+        <p class="eyebrow !text-bronze-300 mb-4">{{ 'contact.sideEyebrow' | t }}</p>
+        <h2 class="font-display text-3xl !text-cream-50 mb-8">{{ hotel.name }}</h2>
+
+        <div class="space-y-7">
+          <div>
+            <p class="text-xs uppercase tracking-widest text-bronze-300 mb-2">{{ 'contact.sideAddress' | t }}</p>
+            <address class="not-italic leading-relaxed">
+              {{ hotel.address.street }}<br>
+              {{ hotel.address.postalCode }} {{ hotel.address.city }}<br>
+              {{ hotel.address.country }}
+            </address>
+            <a [href]="hotel.googleMaps" target="_blank" rel="noopener"
+               class="inline-block mt-3 text-sm link-underline text-bronze-300 hover:text-cream-50">
+              {{ 'contact.mapsLink' | t }}
+            </a>
+          </div>
+
+          <div>
+            <p class="text-xs uppercase tracking-widest text-bronze-300 mb-2">{{ 'contact.sidePhone' | t }}</p>
+            @for (p of hotel.phones; track p.value) {
+              <div>
+                <a [href]="p.href" class="link-underline hover:text-cream-50">{{ p.value }}</a>
+              </div>
+            }
+          </div>
+
+          <div>
+            <p class="text-xs uppercase tracking-widest text-bronze-300 mb-2">{{ 'contact.sideEmail' | t }}</p>
+            <a [href]="hotel.emailHref" class="link-underline hover:text-cream-50">{{ hotel.email }}</a>
+          </div>
+
+          <div>
+            <p class="text-xs uppercase tracking-widest text-bronze-300 mb-2">{{ 'contact.sideHours' | t }}</p>
+            <p>{{ 'contact.sideHoursV' | t }}</p>
+          </div>
+        </div>
+      </div>
+    </aside>
+  </div>
+</section>
+
+<section class="bg-cream-100">
+  <div class="aspect-[21/9] w-full">
+    <iframe
+      [title]="'contact.mapTitle' | t"
+      src="https://maps.google.com/maps?q=47.8751017,8.3464534&z=15&output=embed"
+      class="w-full h-full border-0"
+      loading="lazy"
+      referrerpolicy="no-referrer-when-downgrade"></iframe>
+  </div>
+</section>

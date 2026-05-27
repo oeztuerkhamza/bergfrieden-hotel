@@ -1,0 +1,15 @@
+{
+  "name": "Hotel Bergfrieden Löffingen",
+  "short_name": "Hotel Bergfrieden",
+  "description": "Familiengeführtes Hotel im Hochschwarzwald mit Alpenblick, Bio-Regiofrühstück und herzlicher Gastfreundschaft seit über 40 Jahren.",
+  "start_url": "/de",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#fdfbf6",
+  "theme_color": "#27402a",
+  "lang": "de",
+  "categories": ["travel", "lifestyle", "food"],
+  "icons": [
+    { "src": "/images/web-logo-219x77.png", "sizes": "219x77", "type": "image/png", "purpose": "any" }
+  ]
+}

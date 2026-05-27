@@ -1,0 +1,234 @@
+<!-- Hero -->
+<section class="relative h-screen min-h-[640px] flex items-center overflow-hidden">
+  <div class="absolute inset-0">
+    @for (slide of heroSlides; track slide; let i = $index) {
+      <div class="absolute inset-0 animate-fade-in"
+           [style.animation-delay.s]="i * 0.3">
+        <img [src]="slide" alt=""
+             class="w-full h-full object-cover animate-ken-burns"
+             [style.animation-delay.s]="i * 4"
+             [attr.loading]="i === 0 ? 'eager' : 'lazy'"
+             [attr.fetchpriority]="i === 0 ? 'high' : 'auto'">
+      </div>
+    }
+    <div class="absolute inset-0 bg-gradient-to-b from-forest-950/40 via-forest-950/30 to-forest-950/70"></div>
+  </div>
+
+  <div class="container-page relative z-10 text-cream-50">
+    <p class="eyebrow !text-bronze-300 mb-6 animate-fade-up">{{ 'home.heroEyebrow' | t }}</p>
+    <h1 class="font-display font-light text-display-xl text-cream-50 max-w-4xl mb-8 animate-fade-up"
+        style="animation-delay: 0.15s">
+      {{ 'home.heroTitle1' | t }}
+      <span class="block italic text-bronze-200">{{ 'home.heroTitle2' | t }}</span>
+    </h1>
+    <p class="text-lg lg:text-xl text-cream-100/90 max-w-2xl leading-relaxed mb-12 animate-fade-up"
+       style="animation-delay: 0.3s">
+      {{ 'home.heroSub' | t }}
+    </p>
+    <div class="flex flex-wrap gap-4 animate-fade-up" style="animation-delay: 0.45s">
+      <a [routerLink]="link('kontakt')" class="btn-primary !bg-cream-50 !text-forest-900 hover:!bg-cream-100">
+        {{ 'common.inquirySend' | t }}
+      </a>
+      <a [routerLink]="link('zimmer')" class="btn-secondary !border-cream-50 !text-cream-50 hover:!bg-cream-50 hover:!text-forest-900">
+        {{ 'common.viewRooms' | t }}
+      </a>
+    </div>
+  </div>
+
+</section>
+
+<!-- Story intro -->
+<section class="section bg-cream-50">
+  <div class="container-narrow text-center">
+    <p class="eyebrow mb-6">{{ 'home.storyEyebrow' | t }}</p>
+    <h2 class="text-display-lg mb-8">
+      {{ 'home.storyTitle1' | t }}<br>
+      <span class="italic text-bronze-700">{{ 'home.storyTitle2' | t }}</span>
+    </h2>
+    <p class="text-lg text-ink-700 leading-relaxed">
+      {{ 'home.storyBody' | t }}
+    </p>
+    <div class="mt-10">
+      <a [routerLink]="link('uber-uns')" class="link-underline text-forest-800 font-medium tracking-wider uppercase text-sm">
+        {{ 'common.ourStory' | t }}
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- Highlights -->
+<section class="section bg-forest-900 text-cream-50">
+  <div class="container-page">
+    <div class="max-w-2xl mb-16">
+      <p class="eyebrow !text-bronze-300 mb-4">{{ 'home.highlightsEyebrow' | t }}</p>
+      <h2 class="text-display-lg !text-cream-50">
+        {{ 'home.highlightsTitle1' | t }}<br>{{ 'home.highlightsTitle2' | t }}
+      </h2>
+    </div>
+    <div class="grid gap-px bg-forest-800 lg:grid-cols-2">
+      @for (item of highlights; track item.titleKey) {
+        <div class="bg-forest-900 p-10 lg:p-14 group hover:bg-forest-800 transition-colors duration-500">
+          <div class="w-12 h-px bg-bronze-400 mb-8 group-hover:w-20 transition-all duration-500"></div>
+          <h3 class="font-display text-2xl lg:text-3xl !text-cream-50 mb-4">{{ item.titleKey | t }}</h3>
+          <p class="text-cream-200/90 leading-relaxed">{{ item.textKey | t }}</p>
+        </div>
+      }
+    </div>
+  </div>
+</section>
+
+<!-- Image break + breakfast tease -->
+<section class="section bg-cream-100">
+  <div class="container-page">
+    <div class="grid lg:grid-cols-12 gap-10 lg:gap-16 items-center">
+      <div class="lg:col-span-7 relative">
+        <img src="/images/Fruhstuck.jpg" alt=""
+             class="w-full aspect-[4/3] object-cover shadow-card" loading="lazy">
+        <div class="absolute -bottom-6 -right-6 hidden lg:block bg-bronze-500 text-cream-50 p-6 max-w-xs">
+          <p class="font-display text-2xl italic leading-tight">{{ 'home.breakfastQuote' | t }}</p>
+        </div>
+      </div>
+      <div class="lg:col-span-5">
+        <p class="eyebrow mb-4">{{ 'home.breakfastEyebrow' | t }}</p>
+        <h2 class="text-display-md mb-6">
+          {{ 'home.breakfastTitle1' | t }}<br><span class="italic">{{ 'home.breakfastTitle2' | t }}</span>
+        </h2>
+        <p class="text-ink-700 leading-relaxed mb-4">{{ 'home.breakfastP1' | t }}</p>
+        <p class="text-ink-700 leading-relaxed mb-8">{{ 'home.breakfastP2' | t }}</p>
+        <a [routerLink]="link('fruhstuck')" class="link-underline text-forest-800 font-medium tracking-wider uppercase text-sm">
+          {{ 'common.moreBreakfast' | t }}
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Zimmer teaser -->
+<section class="section bg-cream-50">
+  <div class="container-page">
+    <div class="flex flex-col lg:flex-row lg:items-end justify-between gap-8 mb-14">
+      <div class="max-w-xl">
+        <p class="eyebrow mb-4">{{ 'home.roomsEyebrow' | t }}</p>
+        <h2 class="text-display-lg">
+          {{ 'home.roomsTitle1' | t }}<br><span class="italic text-bronze-700">{{ 'home.roomsTitle2' | t }}</span>
+        </h2>
+      </div>
+      <a [routerLink]="link('zimmer')" class="link-underline text-forest-800 font-medium tracking-wider uppercase text-sm self-start lg:self-auto">
+        {{ 'common.allRooms' | t }}
+      </a>
+    </div>
+    <div class="grid md:grid-cols-3 gap-6 lg:gap-8">
+      <a [routerLink]="link('zimmer')" class="group block">
+        <div class="relative aspect-[4/5] overflow-hidden">
+          <img src="/images/hbf-foto-11.jpg" [alt]="'rooms.r2Name' | t"
+               class="w-full h-full object-cover transition-transform duration-700 ease-silk group-hover:scale-105"
+               loading="lazy">
+          <div class="absolute inset-0 bg-gradient-to-t from-forest-950/70 to-transparent"></div>
+          <div class="absolute bottom-0 left-0 right-0 p-6 text-cream-50">
+            <h3 class="font-display text-2xl !text-cream-50">{{ 'rooms.r2Name' | t }}</h3>
+            <p class="text-cream-200/90 text-sm mt-1">{{ 'home.roomCardDouble' | t }}</p>
+          </div>
+        </div>
+      </a>
+      <a [routerLink]="link('zimmer')" class="group block">
+        <div class="relative aspect-[4/5] overflow-hidden">
+          <img src="/images/IMG_62802-1024x638-1.jpg" [alt]="'rooms.r1Name' | t"
+               class="w-full h-full object-cover transition-transform duration-700 ease-silk group-hover:scale-105"
+               loading="lazy">
+          <div class="absolute inset-0 bg-gradient-to-t from-forest-950/70 to-transparent"></div>
+          <div class="absolute bottom-0 left-0 right-0 p-6 text-cream-50">
+            <h3 class="font-display text-2xl !text-cream-50">{{ 'rooms.r1Name' | t }}</h3>
+            <p class="text-cream-200/90 text-sm mt-1">{{ 'home.roomCardSingle' | t }}</p>
+          </div>
+        </div>
+      </a>
+      <a [routerLink]="link('zimmer')" class="group block">
+        <div class="relative aspect-[4/5] overflow-hidden">
+          <img src="/images/14A7498-1240x827.jpg" [alt]="'rooms.r3Name' | t"
+               class="w-full h-full object-cover transition-transform duration-700 ease-silk group-hover:scale-105"
+               loading="lazy">
+          <div class="absolute inset-0 bg-gradient-to-t from-forest-950/70 to-transparent"></div>
+          <div class="absolute bottom-0 left-0 right-0 p-6 text-cream-50">
+            <h3 class="font-display text-2xl !text-cream-50">{{ 'rooms.r3Name' | t }}</h3>
+            <p class="text-cream-200/90 text-sm mt-1">{{ 'home.roomCardFamily' | t }}</p>
+          </div>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- Discover teaser -->
+<section class="section bg-cream-100 relative overflow-hidden">
+  <div class="container-page relative">
+    <div class="grid lg:grid-cols-12 gap-10 lg:gap-16 items-center">
+      <div class="lg:col-span-5 order-2 lg:order-1">
+        <p class="eyebrow mb-4">{{ 'home.discoverEyebrow' | t }}</p>
+        <h2 class="text-display-md mb-6">
+          {{ 'home.discoverTitle1' | t }}<br>{{ 'home.discoverTitle2' | t }}
+        </h2>
+        <p class="text-ink-700 leading-relaxed mb-4">{{ 'home.discoverP1' | t }}</p>
+        <p class="text-ink-700 leading-relaxed mb-8">{{ 'home.discoverP2' | t }}</p>
+        <a [routerLink]="link('entdecken')" class="link-underline text-forest-800 font-medium tracking-wider uppercase text-sm">
+          {{ 'common.exploreRegion' | t }}
+        </a>
+      </div>
+      <div class="lg:col-span-7 order-1 lg:order-2 grid grid-cols-2 gap-4">
+        <img src="/images/Radausfluge.jpg" alt=""
+             class="w-full aspect-[3/4] object-cover shadow-card" loading="lazy">
+        <img src="/images/hbf-foto-08.jpg" alt=""
+             class="w-full aspect-[3/4] object-cover shadow-card mt-12" loading="lazy">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ — visible content (and emitted as FAQPage JSON-LD by SchemaService for AI search) -->
+<section class="section bg-cream-50">
+  <div class="container-narrow">
+    <div class="text-center mb-14">
+      <p class="eyebrow mb-4">{{ 'faq.eyebrow' | t }}</p>
+      <h2 class="text-display-md">
+        {{ 'faq.title1' | t }}<br><span class="italic text-bronze-700">{{ 'faq.title2' | t }}</span>
+      </h2>
+    </div>
+    <div class="divide-y divide-cream-200 border-t border-b border-cream-200">
+      @for (qa of faq; track qa.qKey) {
+        <details class="group py-6">
+          <summary class="flex items-start justify-between gap-6 cursor-pointer list-none">
+            <h3 class="faq-question font-display text-xl lg:text-2xl text-forest-900 flex-1 leading-snug">
+              {{ qa.qKey | t }}
+            </h3>
+            <span class="flex-none mt-1 w-6 h-6 flex items-center justify-center text-bronze-600 transition-transform duration-300 group-open:rotate-45" aria-hidden="true">
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                <path d="M8 1v14M1 8h14" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+              </svg>
+            </span>
+          </summary>
+          <p class="faq-answer mt-4 text-ink-700 leading-relaxed">
+            {{ qa.aKey | t }}
+          </p>
+        </details>
+      }
+    </div>
+  </div>
+</section>
+
+<!-- Final CTA -->
+<section class="relative h-[60vh] min-h-[420px] flex items-center overflow-hidden">
+  <div class="absolute inset-0">
+    <img src="/images/hotel-hbf-slider03-1240x826.jpg" alt=""
+         class="w-full h-full object-cover" loading="lazy">
+    <div class="absolute inset-0 bg-forest-950/60"></div>
+  </div>
+  <div class="container-narrow relative z-10 text-center text-cream-50">
+    <p class="eyebrow !text-bronze-300 mb-6">{{ 'home.ctaEyebrow' | t }}</p>
+    <h2 class="text-display-lg !text-cream-50 mb-8">
+      {{ 'home.ctaTitle1' | t }}<br><span class="italic text-bronze-200">{{ 'home.ctaTitle2' | t }}</span>
+    </h2>
+    <p class="text-cream-200/90 max-w-xl mx-auto mb-10">{{ 'home.ctaBody' | t }}</p>
+    <a [routerLink]="link('kontakt')" class="btn-primary !bg-cream-50 !text-forest-900 hover:!bg-cream-100">
+      {{ 'common.inquirySend' | t }}
+    </a>
+  </div>
+</section>

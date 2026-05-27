@@ -1,0 +1,15 @@
+<section class="min-h-screen flex items-center bg-cream-50 pt-24">
+  <div class="container-narrow text-center py-20">
+    <p class="eyebrow mb-5">{{ 'notFound.eyebrow' | t }}</p>
+    <h1 class="font-display text-display-lg mb-6">
+      {{ 'notFound.title1' | t }}<br><span class="italic text-bronze-700">{{ 'notFound.title2' | t }}</span>
+    </h1>
+    <p class="text-lg text-ink-700 max-w-xl mx-auto mb-10">
+      {{ 'notFound.body' | t }}
+    </p>
+    <div class="flex flex-wrap items-center justify-center gap-4">
+      <a [routerLink]="link('')" class="btn-primary">{{ 'notFound.btnHome' | t }}</a>
+      <a [routerLink]="link('kontakt')" class="btn-secondary">{{ 'common.contactUs' | t }}</a>
+    </div>
+  </div>
+</section>

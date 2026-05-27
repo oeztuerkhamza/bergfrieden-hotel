@@ -1,0 +1,121 @@
+<header
+  class="fixed inset-x-0 top-0 z-50 transition-all duration-500 ease-silk"
+  [class.bg-cream-50]="solid()"
+  [class.shadow-card]="solid() && scrolled()"
+  [class.py-3]="scrolled() || !routeHasHero()"
+  [class.py-5]="!scrolled() && routeHasHero()">
+  <div class="container-page flex items-center justify-between gap-6">
+    <a [routerLink]="link('')" class="flex items-center gap-3 group" (click)="closeMenu()">
+      <img src="/images/web-logo-219x77.png" alt="Hotel Bergfrieden" class="h-10 w-auto" />
+      <span class="hidden sm:block font-display text-lg font-medium leading-tight transition-colors"
+            [class.text-cream-50]="!solid()"
+            [class.text-forest-900]="solid()">
+        Hotel Bergfrieden
+        <span class="block text-xs tracking-widest uppercase opacity-80">{{ hotel.tagline }}</span>
+      </span>
+    </a>
+
+    <nav class="hidden lg:flex items-center gap-1">
+      @for (l of nav; track l.path) {
+        <a [routerLink]="link(l.path)"
+           routerLinkActive="text-bronze-600"
+           [routerLinkActiveOptions]="{ exact: l.path === '' }"
+           class="link-underline px-3 py-2 text-sm font-medium tracking-wider uppercase transition-colors duration-300"
+           [class.text-cream-50]="!solid()"
+           [class.text-forest-900]="solid()"
+           [class.hover:text-bronze-300]="!solid()"
+           [class.hover:text-bronze-600]="solid()">
+          {{ l.key | t }}
+        </a>
+      }
+    </nav>
+
+    <div class="hidden lg:flex items-center gap-3">
+      <!-- Language switcher -->
+      <div class="relative">
+        <button type="button" (click)="toggleLangMenu()"
+                [attr.aria-expanded]="langMenuOpen()"
+                aria-haspopup="menu"
+                class="inline-flex items-center gap-1.5 px-3 py-2 text-xs font-medium tracking-widest uppercase transition-colors"
+                [class.text-cream-50]="!solid()"
+                [class.text-forest-900]="solid()">
+          <span>{{ lang() }}</span>
+          <svg width="10" height="10" viewBox="0 0 10 10" class="transition-transform" [class.rotate-180]="langMenuOpen()">
+            <path d="M2 4l3 3 3-3" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </button>
+        @if (langMenuOpen()) {
+          <div class="absolute right-0 top-full mt-2 min-w-[140px] bg-cream-50 shadow-card-hover py-2 animate-fade-in border border-cream-200">
+            @for (l of langs; track l) {
+              <button type="button" (click)="switchLang(l)"
+                      class="w-full px-4 py-2 text-left text-sm transition-colors hover:bg-cream-100"
+                      [class.text-bronze-600]="l === lang()"
+                      [class.font-medium]="l === lang()"
+                      [class.text-forest-900]="l !== lang()">
+                {{ langMeta[l].label }}
+              </button>
+            }
+          </div>
+        }
+      </div>
+
+      <a [routerLink]="link('kontakt')" class="btn-primary !py-2.5 !px-5 !text-xs">
+        {{ 'common.inquire' | t }}
+      </a>
+    </div>
+
+    <button (click)="toggleMenu()"
+            [attr.aria-label]="menuOpen() ? ('common.menuClose' | t) : ('common.menuOpen' | t)"
+            [attr.aria-expanded]="menuOpen()"
+            class="lg:hidden inline-flex flex-col items-center justify-center w-10 h-10 transition-colors"
+            [class.text-cream-50]="!solid()"
+            [class.text-forest-900]="solid()">
+      <span class="block w-6 h-px bg-current transition-transform duration-300"
+            [class.translate-y-1.5]="!menuOpen()"
+            [class.rotate-45]="menuOpen()"></span>
+      <span class="block w-6 h-px bg-current my-1 transition-opacity duration-300"
+            [class.opacity-0]="menuOpen()"></span>
+      <span class="block w-6 h-px bg-current transition-transform duration-300"
+            [class.-translate-y-1.5]="!menuOpen()"
+            [class.-rotate-45]="menuOpen()"></span>
+    </button>
+  </div>
+
+  @if (menuOpen()) {
+    <div class="lg:hidden bg-cream-50 border-t border-cream-200 animate-fade-in">
+      <nav class="container-page py-6 flex flex-col">
+        @for (l of nav; track l.path) {
+          <a [routerLink]="link(l.path)"
+             routerLinkActive="text-bronze-600"
+             [routerLinkActiveOptions]="{ exact: l.path === '' }"
+             (click)="closeMenu()"
+             class="py-3 text-base font-medium tracking-wider uppercase text-forest-900 hover:text-bronze-600 border-b border-cream-200">
+            {{ l.key | t }}
+          </a>
+        }
+
+        <!-- Mobile lang switcher -->
+        <div class="py-4 border-b border-cream-200">
+          <p class="text-xs uppercase tracking-widest text-ink-600 mb-3">Sprache · Language</p>
+          <div class="flex flex-wrap gap-2">
+            @for (l of langs; track l) {
+              <button type="button" (click)="switchLang(l)"
+                      class="px-3 py-1.5 text-xs uppercase tracking-widest border transition-colors"
+                      [class.bg-forest-800]="l === lang()"
+                      [class.text-cream-50]="l === lang()"
+                      [class.border-forest-800]="l === lang()"
+                      [class.border-cream-300]="l !== lang()"
+                      [class.text-forest-900]="l !== lang()">
+                {{ langMeta[l].label }}
+              </button>
+            }
+          </div>
+        </div>
+
+        <a [routerLink]="link('kontakt')" (click)="closeMenu()" class="btn-primary mt-6">
+          {{ 'common.inquirySend' | t }}
+        </a>
+      </nav>
+    </div>
+  }
+</header>

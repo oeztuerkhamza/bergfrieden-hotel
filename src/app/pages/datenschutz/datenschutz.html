@@ -1,0 +1,62 @@
+<section class="pt-32 lg:pt-40 pb-16 bg-cream-50">
+  <div class="container-narrow">
+    <p class="eyebrow mb-5">{{ 'privacy.eyebrow' | t }}</p>
+    <h1 class="font-display text-display-md">{{ 'privacy.title' | t }}</h1>
+  </div>
+</section>
+
+<section class="pb-24 bg-cream-50">
+  <div class="container-narrow space-y-10 text-ink-800 leading-relaxed">
+    <div>
+      <h2 class="font-display text-2xl mb-3">{{ 'privacy.s1H' | t }}</h2>
+      <address class="not-italic">
+        {{ hotel.name }}<br>
+        {{ hotel.address.street }}<br>
+        {{ hotel.address.postalCode }} {{ hotel.address.city }}<br>
+        E-Mail: <a [href]="hotel.emailHref" class="link-underline">{{ hotel.email }}</a>
+      </address>
+    </div>
+
+    <div>
+      <h2 class="font-display text-2xl mb-3">{{ 'privacy.s2H' | t }}</h2>
+      <p>{{ 'privacy.s2P' | t }}</p>
+    </div>
+
+    <div>
+      <h2 class="font-display text-2xl mb-3">{{ 'privacy.s3H' | t }}</h2>
+      <p>{{ 'privacy.s3P' | t }}</p>
+    </div>
+
+    <div>
+      <h2 class="font-display text-2xl mb-3">{{ 'privacy.s4H' | t }}</h2>
+      <p>{{ 'privacy.s4P' | t }}</p>
+    </div>
+
+    <div>
+      <h2 class="font-display text-2xl mb-3">{{ 'privacy.s5H' | t }}</h2>
+      <p>{{ 'privacy.s5P1' | t }}
+        <a href="https://policies.google.com/privacy" target="_blank" rel="noopener" class="link-underline">Google Privacy Policy</a>.
+      </p>
+      <p class="mt-3">{{ 'privacy.s5P2' | t }}</p>
+    </div>
+
+    <div>
+      <h2 class="font-display text-2xl mb-3">{{ 'privacy.s6H' | t }}</h2>
+      <p>{{ 'privacy.s6Intro' | t }}</p>
+      <ul class="list-disc pl-6 mt-3 space-y-2">
+        <li>{{ 'privacy.s6r1' | t }}</li>
+        <li>{{ 'privacy.s6r2' | t }}</li>
+        <li>{{ 'privacy.s6r3' | t }}</li>
+        <li>{{ 'privacy.s6r4' | t }}</li>
+        <li>{{ 'privacy.s6r5' | t }}</li>
+        <li>{{ 'privacy.s6r6' | t }}</li>
+      </ul>
+      <p class="mt-4">{{ 'privacy.s6After' | t }}</p>
+    </div>
+
+    <div>
+      <h2 class="font-display text-2xl mb-3">{{ 'privacy.s7H' | t }}</h2>
+      <p class="text-sm text-ink-600">{{ 'privacy.s7P' | t }}</p>
+    </div>
+  </div>
+</section>

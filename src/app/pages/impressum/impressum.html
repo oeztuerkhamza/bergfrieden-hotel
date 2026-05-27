@@ -1,0 +1,55 @@
+<section class="pt-32 lg:pt-40 pb-16 bg-cream-50">
+  <div class="container-narrow">
+    <p class="eyebrow mb-5">{{ 'imprint.eyebrow' | t }}</p>
+    <h1 class="font-display text-display-md">{{ 'imprint.title' | t }}</h1>
+  </div>
+</section>
+
+<section class="pb-24 bg-cream-50">
+  <div class="container-narrow space-y-10 text-ink-800 leading-relaxed">
+    <div>
+      <h2 class="font-display text-2xl mb-3">{{ 'imprint.providerH' | t }}</h2>
+      <address class="not-italic">
+        {{ hotel.name }}<br>
+        {{ hotel.address.street }}<br>
+        {{ hotel.address.postalCode }} {{ hotel.address.city }}<br>
+        {{ hotel.address.country }}
+      </address>
+    </div>
+
+    <div>
+      <h2 class="font-display text-2xl mb-3">{{ 'imprint.contactH' | t }}</h2>
+      <p>
+        @for (p of hotel.phones; track p.value; let last = $last) {
+          <a [href]="p.href" class="link-underline">{{ p.value }}</a>@if (!last) {<span> · </span>}
+        }
+      </p>
+      <p><a [href]="hotel.emailHref" class="link-underline">{{ hotel.email }}</a></p>
+    </div>
+
+    <div>
+      <h2 class="font-display text-2xl mb-3">{{ 'imprint.responsibleH' | t }}</h2>
+      <p>{{ 'imprint.responsibleP' | t }}</p>
+      <p class="text-sm text-ink-600 mt-2"><em>{{ 'imprint.responsibleNote' | t }}</em></p>
+    </div>
+
+    <div>
+      <h2 class="font-display text-2xl mb-3">{{ 'imprint.disputeH' | t }}</h2>
+      <p>{{ 'imprint.disputeP1' | t }}
+        <a href="https://ec.europa.eu/consumers/odr" target="_blank" rel="noopener" class="link-underline">
+          https://ec.europa.eu/consumers/odr</a>.
+      </p>
+      <p class="mt-3">{{ 'imprint.disputeP2' | t }}</p>
+    </div>
+
+    <div>
+      <h2 class="font-display text-2xl mb-3">{{ 'imprint.liabilityH' | t }}</h2>
+      <p>{{ 'imprint.liabilityP' | t }}</p>
+    </div>
+
+    <div>
+      <h2 class="font-display text-2xl mb-3">{{ 'imprint.copyrightH' | t }}</h2>
+      <p>{{ 'imprint.copyrightP' | t }}</p>
+    </div>
+  </div>
+</section>
