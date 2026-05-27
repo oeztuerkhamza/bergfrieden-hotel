@@ -44,7 +44,6 @@ export interface NavLink {
 }
 
 export const NAV_LINKS: readonly NavLink[] = [
-  { key: 'nav.home',      path: '' },
   { key: 'nav.about',     path: 'uber-uns' },
   { key: 'nav.rooms',     path: 'zimmer' },
   { key: 'nav.breakfast', path: 'fruhstuck' },

@@ -23,7 +23,7 @@ type LeafTuple = { de: string; en: string; fr: string; tr: string };
 export const T = {
   // ─── Navigation ──────────────────────────────────────────────────────────────
   nav: {
-    home:      { de: 'Startseite',  en: 'Home',         fr: 'Accueil',         tr: 'Anasayfa' },
+
     about:     { de: 'Über uns',    en: 'About',        fr: 'À propos',        tr: 'Hakkımızda' },
     rooms:     { de: 'Zimmer',      en: 'Rooms',        fr: 'Chambres',        tr: 'Odalar' },
     breakfast: { de: 'Frühstück',   en: 'Breakfast',    fr: 'Petit-déjeuner',  tr: 'Kahvaltı' },
