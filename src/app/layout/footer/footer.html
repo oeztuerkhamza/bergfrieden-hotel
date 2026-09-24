@@ -51,7 +51,10 @@
       <p>© {{ year }} {{ hotel.name }}. {{ 'footer.rights' | t }}</p>
       <p>
         Webdesign:
-        <a href="https://breisgau-digital.de" target="_blank" rel="noopener noreferrer" class="link-underline hover:text-cream-50">Breisgau Digital</a>
+        <a href="https://breisgau-digital.de" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 align-middle hover:text-cream-50">
+          <img src="images/breisgau-digital.webp" alt="" width="16" height="20" loading="lazy">
+          <span class="link-underline">Breisgau Digital</span>
+        </a>
       </p>
       <div class="flex items-center gap-6">
         <a [routerLink]="link('impressum')" class="link-underline hover:text-cream-50">{{ 'footer.imprint' | t }}</a>
