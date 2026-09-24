@@ -49,6 +49,10 @@
   <div class="border-t border-forest-800/60">
     <div class="container-page py-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-cream-300">
       <p>© {{ year }} {{ hotel.name }}. {{ 'footer.rights' | t }}</p>
+      <p>
+        Webdesign:
+        <a href="https://breisgau-digital.de" target="_blank" rel="noopener noreferrer" class="link-underline hover:text-cream-50">Breisgau Digital</a>
+      </p>
       <div class="flex items-center gap-6">
         <a [routerLink]="link('impressum')" class="link-underline hover:text-cream-50">{{ 'footer.imprint' | t }}</a>
         <a [routerLink]="link('datenschutz')" class="link-underline hover:text-cream-50">{{ 'footer.privacy' | t }}</a>
